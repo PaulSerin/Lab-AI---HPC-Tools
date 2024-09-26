@@ -365,7 +365,7 @@ def train_and_evaluate(model, train_loader, eval_loader, optimizer, device, epoc
 print("""
                         ##################################################
                         #                                                #
-                        #                 START TRAINING                 #
+                        #         START TRAINING AND EVALUATION          #
                         #                                                #
                         ##################################################
 """)
@@ -375,6 +375,8 @@ log_dir = "logs/fit/" + datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
 writer = SummaryWriter(log_dir)
 
 train_losses = train_model(model, train_loader, optim, device, epochs=2)
+
+eval_losses = evaluate_model(model, train_loader, device, print_every=100)
 
 writer.close()
 
