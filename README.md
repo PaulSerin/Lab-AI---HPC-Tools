@@ -48,3 +48,57 @@ tensorboard --logdir=logs/fit
 
 Here are the results I optained on tensorbaord with my try : 
 
+
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+
+# Lab-AI - HPC-Tools
+
+## Introduction 
+
+This repository focuses on parallelizing the training loop of a machine learning model and analyzing key metrics such as efficiency and speedup in comparison to the sequential implementation.
+
+The repository is divided into two parts:
+
+1. **BASELINE**: A sequential implementation of a training loop on a BERT model using the SQuAD dataset.
+2. **DISTRIBUTED**: The parallelized version of the code, along with performance metrics and comparisons.
+
+## BASELINE
+
+A significant part of the model implementation in this section is based on a notebook found online: [BERT-based pretrained model using SQuAD 2.0 dataset](https://github.com/alexaapo/BERT-based-pretrained-model-using-SQuAD-2.0-dataset). I have adapted the notebook to suit the objectives of this project.
+
+This section includes the following:
+
+- A detailed notebook explaining the steps taken to train the model: [BASELINE.ipynb](https://github.com/PaulSerin/Lab-AI---HPC-Tools/blob/main/BASELINE.ipynb).
+- A Python script that trains the model for 2 epochs and evaluates it on a test dataset: [BASELINE.py](https://github.com/PaulSerin/Lab-AI---HPC-Tools/blob/main/BASELINE.py).
+
+To run the training script on an A100 GPU, you can use the following command:
+
+```
+sbatch run.sh
+```
+
+
+This will generate an output similar to this SLURM output file: [slurm-8705441.out](https://github.com/PaulSerin/Lab-AI---HPC-Tools/blob/main/slurm-8705441.out), but the file name will match the corresponding SLURM job ID.
+
+### Results
+
+You can find the results of the training loop here:
+
+- [Training Output](https://github.com/PaulSerin/Lab-AI---HPC-Tools/blob/main/slurm-8703817.out#L247-L249)
+- [Evaluation Output](https://github.com/PaulSerin/Lab-AI---HPC-Tools/blob/main/slurm-8703817.out#L5789-L5791)
+
+The total training time for 2 epochs on the full dataset is approximately 1 hour, with a final training loss of **0.88**.
+
+The validation loss is also very low at **0.55**, indicating strong model performance.
+
+#### Visualization
+
+You can visualize the evolution of the training and validation loss using TensorBoard by running:
+
+```
+tensorboard --logdir=logs/fit
+```
+
+Below is a snapshot of the results obtained from my experiments:
+
+
