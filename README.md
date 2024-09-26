@@ -84,8 +84,9 @@ This will generate an output similar to this SLURM output file: [slurm-8705441.o
 
 You can find the results of the training loop here:
 
-- [Training Output](https://github.com/PaulSerin/Lab-AI---HPC-Tools/blob/main/slurm-8703817.out#L247-L249)
-- [Evaluation Output](https://github.com/PaulSerin/Lab-AI---HPC-Tools/blob/main/slurm-8703817.out#L5789-L5791)
+https://github.com/PaulSerin/Lab-AI---HPC-Tools/blob/693edd42dcd61574d18b0b798045b69d592c26b6/slurm-8703817.out#L247-L249
+
+https://github.com/PaulSerin/Lab-AI---HPC-Tools/blob/1d9f1d90a416b68af08f99c09e14a8046a09d4c7/slurm-8703817.out#L5789-L5791
 
 The total training time for 2 epochs on the full dataset is approximately 1 hour, with a final training loss of **0.88**.
 
