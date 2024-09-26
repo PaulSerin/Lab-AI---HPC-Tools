@@ -309,6 +309,8 @@ def evaluate_model(model, eval_loader, device, print_every=100):
             loss = outputs[0]
             
             total_loss += loss.item()
+            
+            writer.add_scalar('Evaluation Loss', loss.item(), batch_idx)
 
             if (batch_idx + 1) % print_every == 0:
                 print(f"Batch {batch_idx + 1} / {len(eval_loader)}, Loss: {round(loss.item(), 1)}")
@@ -374,14 +376,8 @@ print("""
 log_dir = "logs/fit/" + datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
 writer = SummaryWriter(log_dir)
 
-train_losses = train_model(model, train_loader, optim, device, epochs=2)
-
-writer.close()
-
-log_dir = "logs/fit/" + datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
-writer = SummaryWriter(log_dir)
-
-eval_losses = evaluate_model(model, train_loader, device, print_every=100)
+train_losses = train_model(model, train_loader, optim, device, epochs=2, writer=writer)
+eval_losses = evaluate_model(model, test_loader, device, print_every=100, writer=writer)
 
 writer.close()
 
