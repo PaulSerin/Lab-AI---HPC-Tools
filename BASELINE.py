@@ -13,6 +13,8 @@ from torch.utils.data import DataLoader
 import time
 from tqdm import tqdm
 import warnings
+from torch.utils.tensorboard import SummaryWriter
+import datetime
 
 
                         ##################################################
@@ -251,6 +253,8 @@ def train_model(model, train_loader, optimizer, device, epochs=1, print_every=10
             optimizer.step()
 
             total_loss += loss.item()
+            
+            writer.add_scalar('Training Loss', loss.item(), epoch * len(train_loader) + batch_idx)
 
             if (batch_idx + 1) % print_every == 0:
                 print(f"Batch {batch_idx + 1} / {len(train_loader)}, Loss: {round(loss.item(), 1)}")
@@ -259,8 +263,10 @@ def train_model(model, train_loader, optimizer, device, epochs=1, print_every=10
         train_losses.append(avg_loss)
         print(f"Epoch {epoch + 1} finished. Training Loss: {avg_loss}, Time: {time.time() - epoch_time}\n")
 
-    total_train_time = time.time() - total_train_time  # Calculate total training time
-    print(f"Total Training Time: {total_train_time:.2f} seconds")
+    total_train_time = time.time() - total_train_time 
+    minutes = total_train_time // 60
+    seconds = total_train_time % 60
+    print(f"Total Training Time: {int(minutes)} minutes {seconds:.2f} seconds")
 
     return train_losses
 
@@ -289,6 +295,8 @@ def evaluate_model(model, eval_loader, device, print_every=100):
     eval_losses = []
     total_loss = 0
     
+    total_train_time = time.time()  # Start timing the entire training process
+    
     print("\n############ Evaluation ############")
     with torch.no_grad():
         for batch_idx, batch in enumerate(tqdm(eval_loader)):
@@ -308,6 +316,11 @@ def evaluate_model(model, eval_loader, device, print_every=100):
     avg_loss = total_loss / len(eval_loader)
     eval_losses.append(avg_loss)
     print(f"Evaluation finished. Validation Loss: {avg_loss}\n")
+    
+    total_train_time = time.time() - total_train_time 
+    minutes = total_train_time // 60
+    seconds = total_train_time % 60
+    print(f"Total Evaluation Time: {int(minutes)} minutes {seconds:.2f} seconds")
     
     return eval_losses
 
@@ -333,7 +346,10 @@ def train_and_evaluate(model, train_loader, eval_loader, optimizer, device, epoc
     train_losses = train_model(model, train_loader, optimizer, device, epochs, print_every)
     eval_losses = evaluate_model(model, eval_loader, device, print_every)
     
-    print(f"Total training and evaluation time: {time.time() - whole_train_eval_time}\n")
+    total_train_time = time.time() - total_train_time 
+    minutes = total_train_time // 60
+    seconds = total_train_time % 60
+    print(f"Total Training and Evaluation Time: {int(minutes)} minutes {seconds:.2f} seconds")
     
     return train_losses, eval_losses
 
@@ -355,7 +371,12 @@ print("""
 """)
 
 
+log_dir = "logs/fit/" + datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+writer = SummaryWriter(log_dir)
+
 train_losses = train_model(model, train_loader, optim, device, epochs=2)
+
+writer.close()
 
 
 
