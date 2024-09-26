@@ -30,7 +30,7 @@ Here is the results I obtained for
 
 The thaining loop :
 
-[Training Results](https://github.com/PaulSerin/Lab-AI---HPC-Tools/blob/693edd42dcd61574d18b0b798045b69d592c26b6/slurm-8703817.out#L247-L249)
+https://github.com/PaulSerin/Lab-AI---HPC-Tools/blob/693edd42dcd61574d18b0b798045b69d592c26b6/slurm-8703817.out#L247-L249
 
 The evaluation : 
 
