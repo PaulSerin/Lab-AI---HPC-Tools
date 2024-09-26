@@ -299,7 +299,7 @@ def evaluate_model(model, eval_loader, device, print_every=100):
     
     print("\n############ Evaluation ############")
     with torch.no_grad():
-        for batch_idx, batch in enumerate(tqdm(eval_loader)):
+        for batch_idx, batch in enumerate(eval_loader):
             input_ids = batch['input_ids'].to(device)
             attention_mask = batch['attention_mask'].to(device)
             start_positions = batch['start_positions'].to(device)
@@ -375,6 +375,11 @@ log_dir = "logs/fit/" + datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
 writer = SummaryWriter(log_dir)
 
 train_losses = train_model(model, train_loader, optim, device, epochs=2)
+
+writer.close()
+
+log_dir = "logs/fit/" + datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+writer = SummaryWriter(log_dir)
 
 eval_losses = evaluate_model(model, train_loader, device, print_every=100)
 

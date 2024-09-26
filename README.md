@@ -1,23 +1,37 @@
 # Lab-AI - HPC-Tools
 
+## Introduction 
+
+The goal of this repository is to perform a parrelelization on the training loop of model and see for some figures such as the efficiency or the speed compared the the sequential code.
+
+This repository will be divided in 2 parts. First the "BASELINE" part which provide codes which perform a trainning loop on a BERT model with a Squad data set. And the second part "DISTRIBUTED" which provides the parallelization of the sequential code and some figures about the performances.
+
+
 ## BASELINE
 
-### Initial Lightning Example
+First of all, i want to mention that a great part of the model implementation came from a notebook I have found on the internet : (https://github.com/alexaapo/BERT-based-pretrained-model-using-SQuAD-2.0-dataset). I adjust the notebook for our needs. 
 
-This code contains a basic example of how to launch distributed training in Lightning within a distributed environment managed by SLURM.
+So, this part is composed by :
+    
+    - A notebook which explain in detail all the step I have accomplished to train the model : [BASELINE.ipynb](https://github.com/PaulSerin/Lab-AI---HPC-Tools/blob/main/BASELINE.ipynb)
+
+    - A python script that run the training for 2 epochs and evaluate it on a test dataset : [BASELINE.py](https://github.com/PaulSerin/Lab-AI---HPC-Tools/blob/main/BASELINE.py)
 
 
-The example is run a training loop with a a100 gpu executing the command :
+This python script run a training loop with a a100 gpu executing the command :
 
 ```
 sbatch run.sh
 ```
 
-It should generate an output similar to [slurm-8703817.out](https://github.com/diegoandradecanosa/CFR24/blob/main/pytorch_dist/lightning/000/slurm-3417863.out), but with the name corresponding to the SLURM job ID.
+It should generate an output similar to [slurm-8703817.out](https://github.com/PaulSerin/Lab-AI---HPC-Tools/blob/main/slurm-8703817.out), but with the name corresponding to the SLURM job ID.
 
-The training script is the file [sampleLI.py](https://github.com/diegoandradecanosa/CFR24/blob/main/pytorch_dist/lightning/000/sampleLI.py).
+Here is the results I obtained for the thaining loop : 
 
-In the training script, the model definition must be done within a *LightningModule*:
+https://github.com/PaulSerin/Lab-AI---HPC-Tools/blob/main/slurm-8700021.out#L30-L37
+
+
+
 
 https://github.com/diegoandradecanosa/CFR24/blob/40f1fbc4602610e2e2fe60f760f5b2d1bb99ba30/pytorch_dist/lightning/000/sampleLI.py#L10
 
