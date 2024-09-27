@@ -35,7 +35,7 @@ https://github.com/PaulSerin/Lab-AI---HPC-Tools/blob/693edd42dcd61574d18b0b79804
 
 https://github.com/PaulSerin/Lab-AI---HPC-Tools/blob/1d9f1d90a416b68af08f99c09e14a8046a09d4c7/slurm-8703817.out#L5789-L5791
 
-The total training time for 2 epochs on the full dataset is approximately 1 hour, with a final training loss of **0.88**.
+The total training time for 2 epochs on the full dataset is approximately **1 hour**, with a final training loss of **0.88**.
 
 The validation loss is also very low at **0.55**, indicating strong model performance.
 
@@ -48,5 +48,19 @@ tensorboard --logdir=logs/fit
 ```
 
 Below is a snapshot of the results obtained from my experiments:
+
+
+
+
+*1. Evolution of the Training Loss (from 4 to 1)*
+
+The training loss starts at 4 and decreases to 1, which shows that the model is learning effectively from the training data. This indicates that the optimizer is working properly, and the model is adjusting its weights to make better predictions on the training set.
+
+*2. Validation Loss of 1.2 and Training Loss of 1*
+
+With a validation loss of 1.2 and a training loss around 1, the values are quite close, which is a good sign. It suggests that the model generalizes well to the validation data and is not overfitting to the training data. 
+
+The slight difference (1.2 in validation vs 1 in training) is normal, as the validation data is unseen, and performance is typically a bit lower on these samples compared to the training set.
+
 
 
