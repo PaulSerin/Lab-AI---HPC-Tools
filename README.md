@@ -13,6 +13,22 @@ The repository is divided into two parts:
 
 A significant part of the model implementation in this section is based on a notebook found online: [BERT-based pretrained model using SQuAD 2.0 dataset](https://github.com/alexaapo/BERT-based-pretrained-model-using-SQuAD-2.0-dataset). I have adapted the notebook to suit the objectives of this project.
 
+### Data, model and optimizer
+
+I selected the SQuAD2.0 which is composed by more than 100 000 questions.
+
+86 000 for the training set : 
+
+
+
+20 000 for the evaluation set : 
+
+
+
+
+
+### Code
+
 This section includes the following:
 
 - A detailed notebook explaining the steps taken to train the model: [BASELINE.ipynb](https://github.com/PaulSerin/Lab-AI---HPC-Tools/blob/main/BASELINE.ipynb).
@@ -49,8 +65,9 @@ tensorboard --logdir=logs/fit
 
 Below is a snapshot of the results obtained from my experiments:
 
+![Training Loss Function](Images/trainingLossFunctionTB.png)
 
-
+![Evaluation Loss Function](Images/evaluationLossFunctionTB.png) 
 
 *1. Evolution of the Training Loss (from 4 to 1)*
 
@@ -63,4 +80,4 @@ With a validation loss of 1.2 and a training loss around 1, the values are quite
 The slight difference (1.2 in validation vs 1 in training) is normal, as the validation data is unseen, and performance is typically a bit lower on these samples compared to the training set.
 
 
-
+*NB : There are many oscillations when observing the light orange lines because the loss function was calculated at each batch. It is the progression of the moving average, shown in solid dark orange, that should be followed.*
