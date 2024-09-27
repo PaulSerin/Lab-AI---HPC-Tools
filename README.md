@@ -21,9 +21,18 @@ I selected the SQuAD2.0 which is composed by more than 100 000 questions.
 
 ![Train set lenght](Images/trainSetLenght.png)
 
+
 20 000 for the evaluation set : 
 
 ![Test set lenght](Images/testSetLenght.png)
+
+I chose the model BertForQuestionAnswering because it perfectly meets the requirements :
+
+https://github.com/PaulSerin/Lab-AI---HPC-Tools/blob/34dd05fcbd2f22eb06f9e35e49af5a04bc082a7b/BASELINE.py#L201
+
+I used the AdamW optimizer with a learning rate of 5e-5 :
+
+https://github.com/PaulSerin/Lab-AI---HPC-Tools/blob/34dd05fcbd2f22eb06f9e35e49af5a04bc082a7b/BASELINE.py#L204
 
 
 
