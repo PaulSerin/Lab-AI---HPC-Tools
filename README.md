@@ -19,11 +19,11 @@ I selected the SQuAD2.0 which is composed by more than 100 000 questions.
 
 86 000 for the training set : 
 
-
+![Train set lenght](Images/trainSetLenght.png)
 
 20 000 for the evaluation set : 
 
-
+![Test set lenght](Images/testSetLenght.png)
 
 
 
