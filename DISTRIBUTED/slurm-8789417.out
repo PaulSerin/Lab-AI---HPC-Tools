@@ -1,0 +1,105 @@
+slurmstepd: info: Setting TMPDIR to /scratch/8789417. Previous errors about TMPDIR can be discarded
+/var/spool/slurmd/job8789417/slurm_script: ligne 12: /mnt/netapp2/Store_uni//home/ulc/cursos/curso363/mypython/bin/deactivate: No such file or directory
+/mnt/netapp2/Store_uni/home/ulc/cursos/curso363/mypython/bin/python
+2024-10-01 15:34:38.053363: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-10-01 15:34:38.053554: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-10-01 15:34:38.067997: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:485] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-10-01 15:34:38.067996: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:485] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-10-01 15:34:38.084742: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:8454] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-10-01 15:34:38.084806: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:8454] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-10-01 15:34:38.089789: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1452] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-10-01 15:34:38.089833: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1452] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-10-01 15:34:38.102541: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-10-01 15:34:38.102549: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-10-01 15:34:39.359487: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-10-01 15:34:39.359627: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-10-01 15:34:39.372719: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:485] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-10-01 15:34:39.372808: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:485] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-10-01 15:34:39.389049: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:8454] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-10-01 15:34:39.389123: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:8454] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-10-01 15:34:39.393990: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1452] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-10-01 15:34:39.394037: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1452] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-10-01 15:34:39.409450: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-10-01 15:34:39.409486: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-10-01 15:34:39.406224: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-10-01 15:34:39.406272: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-10-01 15:34:40.731826: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-10-01 15:34:40.731976: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+/mnt/netapp2/Store_uni/home/ulc/cursos/curso363/mypython/lib/python3.10/site-packages/transformers/tokenization_utils_base.py:1601: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+/mnt/netapp2/Store_uni/home/ulc/cursos/curso363/mypython/lib/python3.10/site-packages/transformers/tokenization_utils_base.py:1601: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+/mnt/netapp2/Store_uni/home/ulc/cursos/curso363/mypython/lib/python3.10/site-packages/transformers/tokenization_utils_base.py:1601: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+/mnt/netapp2/Store_uni/home/ulc/cursos/curso363/mypython/lib/python3.10/site-packages/transformers/tokenization_utils_base.py:1601: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+Some weights of BertForQuestionAnswering were not initialized from the model checkpoint at bert-base-uncased and are newly initialized: ['qa_outputs.bias', 'qa_outputs.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+
+                        ##################################################
+                        #                                                #
+                        #         START TRAINING AND EVALUATION          #
+                        #                                                #
+                        ##################################################
+
+Traceback (most recent call last):
+  File "/mnt/netapp2/Store_uni/home/ulc/cursos/curso363/Lab AI/Lab-AI---HPC-Tools/DISTRIBUTED/BASELINE2.py", line 430, in <module>
+    trainer_ddp = pl.Trainer(accelerator="gpu", devices=2, gpus=4, precision=16, max_epochs=2, strategy="ddp")
+  File "/mnt/netapp2/Store_uni/home/ulc/cursos/curso363/mypython/lib/python3.10/site-packages/pytorch_lightning/utilities/argparse.py", line 70, in insert_env_defaults
+    return fn(self, **kwargs)
+TypeError: Trainer.__init__() got an unexpected keyword argument 'gpus'
+Some weights of BertForQuestionAnswering were not initialized from the model checkpoint at bert-base-uncased and are newly initialized: ['qa_outputs.bias', 'qa_outputs.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+
+                        ##################################################
+                        #                                                #
+                        #         START TRAINING AND EVALUATION          #
+                        #                                                #
+                        ##################################################
+
+Traceback (most recent call last):
+  File "/mnt/netapp2/Store_uni/home/ulc/cursos/curso363/Lab AI/Lab-AI---HPC-Tools/DISTRIBUTED/BASELINE2.py", line 430, in <module>
+    trainer_ddp = pl.Trainer(accelerator="gpu", devices=2, gpus=4, precision=16, max_epochs=2, strategy="ddp")
+  File "/mnt/netapp2/Store_uni/home/ulc/cursos/curso363/mypython/lib/python3.10/site-packages/pytorch_lightning/utilities/argparse.py", line 70, in insert_env_defaults
+    return fn(self, **kwargs)
+TypeError: Trainer.__init__() got an unexpected keyword argument 'gpus'
+Some weights of BertForQuestionAnswering were not initialized from the model checkpoint at bert-base-uncased and are newly initialized: ['qa_outputs.bias', 'qa_outputs.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+
+                        ##################################################
+                        #                                                #
+                        #         START TRAINING AND EVALUATION          #
+                        #                                                #
+                        ##################################################
+
+Traceback (most recent call last):
+  File "/mnt/netapp2/Store_uni/home/ulc/cursos/curso363/Lab AI/Lab-AI---HPC-Tools/DISTRIBUTED/BASELINE2.py", line 430, in <module>
+    trainer_ddp = pl.Trainer(accelerator="gpu", devices=2, gpus=4, precision=16, max_epochs=2, strategy="ddp")
+  File "/mnt/netapp2/Store_uni/home/ulc/cursos/curso363/mypython/lib/python3.10/site-packages/pytorch_lightning/utilities/argparse.py", line 70, in insert_env_defaults
+    return fn(self, **kwargs)
+TypeError: Trainer.__init__() got an unexpected keyword argument 'gpus'
+Some weights of BertForQuestionAnswering were not initialized from the model checkpoint at bert-base-uncased and are newly initialized: ['qa_outputs.bias', 'qa_outputs.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+
+                        ##################################################
+                        #                                                #
+                        #         START TRAINING AND EVALUATION          #
+                        #                                                #
+                        ##################################################
+
+Traceback (most recent call last):
+  File "/mnt/netapp2/Store_uni/home/ulc/cursos/curso363/Lab AI/Lab-AI---HPC-Tools/DISTRIBUTED/BASELINE2.py", line 430, in <module>
+    trainer_ddp = pl.Trainer(accelerator="gpu", devices=2, gpus=4, precision=16, max_epochs=2, strategy="ddp")
+  File "/mnt/netapp2/Store_uni/home/ulc/cursos/curso363/mypython/lib/python3.10/site-packages/pytorch_lightning/utilities/argparse.py", line 70, in insert_env_defaults
+    return fn(self, **kwargs)
+TypeError: Trainer.__init__() got an unexpected keyword argument 'gpus'
+srun: error: a100-18: task 0: Exited with exit code 1
+srun: launch/slurm: _step_signal: Terminating StepId=8789417.0
+slurmstepd: error: *** STEP 8789417.0 ON a100-18 CANCELLED AT 2024-10-01T15:35:41 ***
+srun: error: a100-18: task 1: Terminated
+srun: error: a100-19: tasks 2-3: Terminated
+srun: Force Terminated StepId=8789417.0
