@@ -90,3 +90,7 @@ The slight difference (1.2 in validation vs 1 in training) is normal, as the val
 
 
 *NB : There are many oscillations when observing the light orange lines because the loss function was calculated at each batch. It is the progression of the moving average, shown in solid dark orange, that should be followed.*
+
+
+
+
