@@ -128,15 +128,21 @@ The implementation leverages **PyTorch Lightning**, which greatly simplifies the
 
 I used the `TimeCallback` to measure and display the execution time of the training process. This callback tracks the start and end times of the training and calculates the total duration. It also prints the time in a human-readable format, providing immediate feedback on how long each training session takes. This is particularly useful when comparing different distributed strategies and assessing performance.
 
+https://github.com/PaulSerin/Lab-AI---HPC-Tools/blob/584f222b516343f326cfbbc0a61a1bcb3a7739d3/DISTRIBUTED/DISTRIBUTED.py#L199-L210
+
 #### MySlurmCallback
 
 The `MySlurmCallback` was implemented to print specific job information related to SLURM, which is the job scheduling system used on the supercomputer. It captures the SLURM job ID, process rank, and the GPU device being used, helping to track which resources were allocated for each training process. This information is valuable for debugging and performance monitoring in a multi-node distributed setup.
+
+https://github.com/PaulSerin/Lab-AI---HPC-Tools/blob/584f222b516343f326cfbbc0a61a1bcb3a7739d3/DISTRIBUTED/DISTRIBUTED.py#L213-L218
 
 #### BertLightning
 
 The `BertLightning` class extends **PyTorch Lightning's** `LightningModule` and encapsulates the entire model's logic, including forward propagation, training, and validation steps. By defining the `training_step` and `validation_step` methods, it simplifies the training loop, automatically handling backpropagation, loss calculation, and logging. The model uses `BertForQuestionAnswering` from the Hugging Face library, and its structure is designed to be modular, allowing easy modifications such as switching out optimizers or tweaking the learning rate.
 
 Additionally, `BertLightning` tracks and logs both the current loss (for the last batch) and the average training loss at the end of each epoch. This gives a more comprehensive view of the model's performance throughout the training process.
+
+https://github.com/PaulSerin/Lab-AI---HPC-Tools/blob/584f222b516343f326cfbbc0a61a1bcb3a7739d3/DISTRIBUTED/DISTRIBUTED.py#L221
 
 #### Trainer
 
@@ -149,6 +155,7 @@ In this case, `Trainer` was configured with:
 
 This makes the process highly configurable, allowing you to experiment with different distribution strategies with minimal code changes, making it easier to scale your model training across different hardware setups.
 
+https://github.com/PaulSerin/Lab-AI---HPC-Tools/blob/584f222b516343f326cfbbc0a61a1bcb3a7739d3/DISTRIBUTED/DISTRIBUTED.py#L221-L278
 
 ### How to Run the Code
 
@@ -157,10 +164,9 @@ To run the code, the user needs to submit the `runDISTRIBUTED.sh` script using t
 ```bash
 sbatch runDISTRIBUTED.sh
 ```
+[runDISTRIBUTED.sh](https://github.com/PaulSerin/Lab-AI---HPC-Tools/blob/584f222b516343f326cfbbc0a61a1bcb3a7739d3/DISTRIBUTED/runDistributed.sh)
+
 
 Before executing the script, the user can specify the desired strategy for distributing work across the available nodes and GPUs. The script includes several pre-configured strategies, and the user simply needs to uncomment the desired strategy in the .sh file. For example, to switch between ddp, fsdp, or deepspeed, the user should edit the following section:
 
-# Work distribution strategies
-# STRATEGY="ddp"
-# STRATEGY="fsdp"
-STRATEGY="deepspeed"
+https://github.com/PaulSerin/Lab-AI---HPC-Tools/blob/22627e1bd86f134c493fce902e379876aabb8a4f/DISTRIBUTED/runDistributed.sh#L18-L20
