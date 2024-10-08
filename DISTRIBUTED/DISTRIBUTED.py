@@ -305,12 +305,12 @@ elif args.strategy == 'deepspeed':
 
 trainer = Trainer(
     max_epochs=2, 
-    num_nodes=2,  # Changez à 2 pour correspondre à votre configuration SLURM
+    num_nodes=2,  
     accelerator="gpu",
-    devices=2,  # Utilisez le nombre de GPU disponibles (devrait être >1 pour DDP)
-    strategy=strategy,  # Utilisez la stratégie DDP
+    devices=2,  
+    strategy=strategy, 
     profiler=SimpleProfiler(),
-    logger=tensorboard_logger,  # Ajout du logger TensorBoard
+    logger=tensorboard_logger,
     callbacks=[
         EarlyStopping(monitor='train_loss'), 
         ModelCheckpoint(dirpath='checkpoints/', filename='{epoch}-{train_loss:.2f}'), 
