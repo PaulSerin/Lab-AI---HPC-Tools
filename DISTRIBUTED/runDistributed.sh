@@ -15,9 +15,9 @@ export NCCL_DEBUG=INFO
 export PYTHONFAULTHANDLER=1
 
 # Work distribution strategies
-STRATEGY="ddp"
+# STRATEGY="ddp"
 # STRATEGY="fsdp"
-# STRATEGY="deepspeed" 
+STRATEGY="deepspeed" 
 
 # Use srun to distribute the Python script execution across the resources
 which python
