@@ -228,8 +228,40 @@ Given that the sequential training time was **63 minutes 48 seconds**, the resul
 
 
 
+## Conclusion
+
+In this project, we began by implementing a sequential training process for our model, which took a significant amount of time, totaling 63 minutes and 48 seconds. This baseline served as a reference point for evaluating the efficiency of distributed training methods.
+
+We then transitioned to distributed training using PyTorch Lightning, which facilitated the process and allowed us to experiment with various work distribution strategies, namely Data Parallel (DDP), Fully Sharded Data Parallel (FSDP), and DeepSpeed. Each strategy was carefully configured and executed, significantly reducing the training times compared to the sequential approach.
+
+The results demonstrated varying efficiencies among the strategies:
+
+- **DDP** achieved a training time of 8 minutes and 2 seconds, providing the highest speedup of approximately 7.94 times compared to the sequential training.
+- **FSDP** followed with a training time of 11 minutes and 7 seconds, resulting in a speedup of about 5.74 times.
+- **DeepSpeed** had a training time of 12 minutes and 21 seconds, yielding a speedup of around 5.17 times.
+
+These findings highlight the effectiveness of distributed training in enhancing performance, particularly with the DDP strategy. The project successfully showcased how modern frameworks like PyTorch Lightning can streamline the implementation of advanced training techniques, ultimately leading to faster model convergence and more efficient use of computational resources.
 
 
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+*Note on TensorCore Optimizer*
+
+*In this project, I utilized the TensorCore optimizer by setting the matrix multiplication precision to high with the command:*
+
+https://github.com/PaulSerin/Lab-AI---HPC-Tools/blob/0e6cd50914417196cc97045d2fd7da85f2ca5b34/DISTRIBUTED/DISTRIBUTED.py#L196
+
+*This optimization takes advantage of NVIDIA's Tensor Cores, which are specialized hardware components designed to accelerate matrix operations, particularly in deep learning tasks. By enabling high-precision matrix multiplication, Tensor Cores can perform computations more efficiently and with greater throughput, especially when dealing with large-scale models and datasets.*
+
+*This setting allows for improved performance in terms of both training speed and overall model efficiency. As a result, leveraging TensorCore optimizations significantly contributed to the performance gains observed in the distributed training strategies employed in this project. It illustrates the importance of utilizing hardware-specific optimizations to achieve faster convergence and better utilization of available computational resources.*
 
 
 
