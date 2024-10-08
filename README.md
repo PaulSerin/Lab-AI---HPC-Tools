@@ -253,6 +253,8 @@ These findings highlight the effectiveness of distributed training in enhancing 
 <br>
 <br>
 
+## Bonus Part
+
 *Note on TensorCore Optimizer*
 
 *In this project, I utilized the TensorCore optimizer by setting the matrix multiplication precision to high with the command:*
@@ -264,4 +266,12 @@ https://github.com/PaulSerin/Lab-AI---HPC-Tools/blob/0e6cd50914417196cc97045d2fd
 *This setting allows for improved performance in terms of both training speed and overall model efficiency. As a result, leveraging TensorCore optimizations significantly contributed to the performance gains observed in the distributed training strategies employed in this project. It illustrates the importance of utilizing hardware-specific optimizations to achieve faster convergence and better utilization of available computational resources.*
 
 
+Since parallelization significantly speeds up the process, I decided to run the training for 7 epochs to obtain more detailed and visually meaningful results. Below are the results displayed on TensorBoard using the DDP strategy for 7 epochs. To visualize the results in TensorBoard, you can run the following command:
 
+```bash
+tensorboard --logdir=tb_logs/7epochs/version_0
+```
+
+The results are shown below:
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;"> <img src="Images/7e-eval_loss.png" alt="7e-eval_loss" style="width: 100%;" /> <img src="Images/7e-avg_train_loss.png" alt="7e-avg_train_loss" style="width: 100%;" /> <img src="Images/7e-epoch.png" alt="7e-epoch" style="width: 100%;" /> <img src="Images/7e-train_loss.png" alt="7e-train_loss" style="width: 100%;" /> </di
