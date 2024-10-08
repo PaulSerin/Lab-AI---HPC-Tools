@@ -1,0 +1,10 @@
+DISTRIBUTED/checkpoints/epoch=1-train_loss=0.09.ckpt
+DISTRIBUTED/checkpoints/epoch=1-train_loss=0.07.ckpt
+DISTRIBUTED/checkpoints/epoch=1-train_loss=0.03.ckpt/latest
+DISTRIBUTED/checkpoints/.nfs00000000387b55870000040b
+DISTRIBUTED/checkpoints/epoch=1-train_loss=0.03.ckpt/checkpoint/zero_pp_rank_3_mp_rank_00_optim_states.pt
+DISTRIBUTED/checkpoints/epoch=1-train_loss=0.03.ckpt/zero_to_fp32.py
+DISTRIBUTED/checkpoints/epoch=1-train_loss=0.03.ckpt/checkpoint/mp_rank_00_model_states.pt
+DISTRIBUTED/checkpoints/epoch=1-train_loss=0.03.ckpt/checkpoint/zero_pp_rank_0_mp_rank_00_optim_states.pt
+DISTRIBUTED/checkpoints/epoch=1-train_loss=0.03.ckpt/checkpoint/zero_pp_rank_1_mp_rank_00_optim_states.pt
+DISTRIBUTED/checkpoints/epoch=1-train_loss=0.03.ckpt/checkpoint/zero_pp_rank_2_mp_rank_00_optim_states.pt
