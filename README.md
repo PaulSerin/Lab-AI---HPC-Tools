@@ -160,7 +160,4 @@ sbatch runDISTRIBUTED.sh
 
 Before executing the script, the user can specify the desired strategy for distributing work across the available nodes and GPUs. The script includes several pre-configured strategies, and the user simply needs to uncomment the desired strategy in the .sh file. For example, to switch between ddp, fsdp, or deepspeed, the user should edit the following section:
 
-# Work distribution strategies
-# STRATEGY="ddp"
-# STRATEGY="fsdp"
-STRATEGY="deepspeed"
+https://github.com/PaulSerin/Lab-AI---HPC-Tools/blob/22627e1bd86f134c493fce902e379876aabb8a4f/DISTRIBUTED/runDistributed.sh#L18-L20
