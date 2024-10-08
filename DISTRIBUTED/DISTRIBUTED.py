@@ -260,7 +260,7 @@ class BertLightning(pl.LightningModule):
         print(f"  - Average train loss (last epoch): {avg_loss:.4f}")
 
         # Reset loss tracking for the next epoch
-        self.train_loss = 0.0
+        self.avg_train_loss = 0.0
         self.num_batches = 0
 
     def validation_step(self, batch, batch_idx):
