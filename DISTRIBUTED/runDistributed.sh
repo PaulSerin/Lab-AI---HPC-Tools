@@ -17,7 +17,7 @@ export PYTHONFAULTHANDLER=1
 # Work distribution strategies
 STRATEGY="ddp"
 # STRATEGY="fsdp"
-# STRATEGY="deepspeed" 
+# STRATEGY="deepspeed"
 
 # Use srun to distribute the Python script execution across the resources
 which python
