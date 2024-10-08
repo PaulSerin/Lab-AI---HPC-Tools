@@ -274,4 +274,36 @@ tensorboard --logdir=tb_logs/7epochs/version_0
 
 The results are shown below:
 
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;"> <img src="Images/7e-eval_loss.png" alt="7e-eval_loss" style="width: 100%;" /> <img src="Images/7e-avg_train_loss.png" alt="7e-avg_train_loss" style="width: 100%;" /> <img src="Images/7e-epoch.png" alt="7e-epoch" style="width: 100%;" /> <img src="Images/7e-train_loss.png" alt="7e-train_loss" style="width: 100%;" /> </di
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; justify-content: center; align-items: center;">
+  <img src="Images/7e-eval_loss.png" alt="7e-eval_loss" style="width: 40%;" />
+  <img src="Images/7e-avg_train_loss.png" alt="7e-avg_train_loss" style="width: 40%;" />
+  <img src="Images/7e-epoch.png" alt="7e-epoch" style="width: 40%;" />
+  <img src="Images/7e-train_loss.png" alt="7e-train_loss" style="width: 40%;" />
+</div>
+
+### Results Analysis
+
+The **training loss** rapidly decreases, converging to around 0.5 and ultimately reaching 0.2, showing that the model learns well from the data. However, the **validation loss** starts at 1.1 and increases to 1.7, indicating possible **overfitting**. This means the model fits the training data well but struggles to generalize to unseen validation data.
+
+#### Key Insights
+
+- **Training Loss Convergence**: The model learns effectively, minimizing error on the training set.
+- **Validation Loss Increase**: The rising validation loss suggests overfitting, where the model memorizes the training data but fails to perform well on new data.
+
+#### Next Steps
+
+- **Early Stopping**: Halt training once validation loss rises to prevent overfitting.
+- **Regularization**: Techniques like dropout or weight decay can help generalize better.
+- **Reduce Epochs**: Fewer epochs may be enough, as continued training worsens validation performance.
+
+In summary, the model has likely reached its optimal performance and may benefit from regularization or early stopping to avoid further overfitting.
+
+
+
+
+
+
+
+
+
+
