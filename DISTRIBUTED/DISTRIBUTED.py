@@ -226,6 +226,7 @@ class BertLightning(pl.LightningModule):
         self.learning_rate = learning_rate
         self.avg_train_loss = 0.0
         self.current_loss = 0.0
+        self.val_loss = 0.0
         self.num_batches = 0
 
     def forward(self, input_ids, attention_mask, start_positions, end_positions):
