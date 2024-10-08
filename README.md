@@ -170,3 +170,65 @@ sbatch runDISTRIBUTED.sh
 Before executing the script, the user can specify the desired strategy for distributing work across the available nodes and GPUs. The script includes several pre-configured strategies, and the user simply needs to uncomment the desired strategy in the .sh file. For example, to switch between ddp, fsdp, or deepspeed, the user should edit the following section:
 
 https://github.com/PaulSerin/Lab-AI---HPC-Tools/blob/22627e1bd86f134c493fce902e379876aabb8a4f/DISTRIBUTED/runDistributed.sh#L18-L20
+
+After running the code, a file named `slurm.out` will be created, containing the output of the executed job. This file also includes the job number associated with the run, providing a reference for monitoring and debugging.
+
+### Profiling
+
+Once a job has been launched, the code automatically logs the results for profiling in the directory `tb_logs/my_model/`. Each recording is assigned a version number; for the first launch, it will be named `version_0`, then `version_1`, and so on for subsequent runs.
+
+To view the profiling results with TensorBoard, the user needs to be in a Python environment and can execute the following command:
+
+```bash
+tensorboard --logdir=tb_logs/my_model/
+```
+
+
+### Results
+
+I executed the `runDISTRIBUTED` script three times, each with a different work distribution strategy: DDP, FSDP, and DEEPSPEED. The resulting `.out` files from SLURM are as follows:
+
+- [slurm-8853928-DDP.out](https://github.com/PaulSerin/Lab-AI---HPC-Tools/blob/0929af2b6ebcc8fa224c89844c6132dd6371adb1/DISTRIBUTED/slurm-8853928-DDP.out)
+- [slurm-8855667-FSDP.out](https://github.com/PaulSerin/Lab-AI---HPC-Tools/blob/0929af2b6ebcc8fa224c89844c6132dd6371adb1/DISTRIBUTED/slurm-8855667-FSDP.out)
+- [slurm-8855830-DEEPSPEED.out](https://github.com/PaulSerin/Lab-AI---HPC-Tools/blob/0929af2b6ebcc8fa224c89844c6132dd6371adb1/DISTRIBUTED/slurm-8855830-DEEPSPEED.out)
+
+The profiling logs can be found in the directory [tb_logs/my_model](https://github.com/PaulSerin/Lab-AI---HPC-Tools/tree/0929af2b6ebcc8fa224c89844c6132dd6371adb1/DISTRIBUTED/tb_logs/my_model).
+
+After executing the following command:
+
+```bash
+tensorboard --logdir=tb_logs/my_model/
+```
+
+we obtained the results displayed in TensorBoard:
+
+![TB_3_Strategies](Images/TB_3_Strategies.png)
+
+Additionally, we can observe the curve of avg_train_loss, which calculates the loss function over the entire epoch. The graph shows a linear trend since we conducted only two epochs.
+
+![TB_3_Strategies](Images/avg_train_loss_3.png)
+
+Notably, all three curves converge, regardless of the method used, indicating that the convergence towards an average train loss of approximately 0.6 remains consistent across different strategies.
+
+
+However, the training times vary slightly across different strategies:
+
+- **DDP:** 8 minutes 2 seconds
+- **FSDP:** 11 minutes 7 seconds
+- **DEEPSPEED:** 12 minutes 21 seconds
+
+Below is a summary table of the training times and speedup:
+
+| Strategy   | Training Time | Speedup |
+|------------|---------------|---------|
+| DDP        | 8 min 2 sec   | 7.94    |
+| FSDP       | 11 min 7 sec  | 5.74    |
+| DEEPSPEED  | 12 min 21 sec | 5.17    |
+
+
+
+
+
+
+
+
