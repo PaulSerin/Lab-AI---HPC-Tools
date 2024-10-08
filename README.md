@@ -217,7 +217,8 @@ However, the training times vary slightly across different strategies:
 - **FSDP:** 11 minutes 7 seconds
 - **DEEPSPEED:** 12 minutes 21 seconds
 
-Below is a summary table of the training times and speedup:
+
+Given that the sequential training time was **63 minutes 48 seconds**, the resulting speedup for each method is as follows:
 
 | Strategy   | Training Time | Speedup |
 |------------|---------------|---------|
