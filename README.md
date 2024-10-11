@@ -297,13 +297,3 @@ The **training loss** rapidly decreases, converging to around 0.5 and ultimately
 - **Reduce Epochs**: Fewer epochs may be enough, as continued training worsens validation performance.
 
 In summary, the model has likely reached its optimal performance and may benefit from regularization or early stopping to avoid further overfitting.
-
-
-
-
-
-
-
-
-
-
