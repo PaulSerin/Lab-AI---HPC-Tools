@@ -269,7 +269,7 @@ https://github.com/PaulSerin/Lab-AI---HPC-Tools/blob/0e6cd50914417196cc97045d2fd
 Since parallelization significantly speeds up the process, I decided to run the training for 7 epochs to obtain more detailed and visually meaningful results. Below are the results displayed on TensorBoard using the DDP strategy for 7 epochs. To visualize the results in TensorBoard, you can run the following command:
 
 ```bash
-tensorboard --logdir=tb_logs/7epochs/version_0
+tensorboard --logdir=tb_logs/7epochs/DDP
 ```
 
 The results are shown below:
