@@ -1,6 +1,6 @@
 # Lab-AI - HPC-Tools
 
-## Introduction 
+## Introduction
 
 This repository focuses on parallelizing the training loop of a machine learning model and analyzing key metrics such as efficiency and speedup in comparison to the sequential implementation.
 
@@ -17,12 +17,11 @@ A significant part of the model implementation in this section is based on a not
 
 I selected the SQuAD2.0 which is composed by more than 100 000 questions.
 
-86 000 for the training set : 
+86 000 for the training set :
 
 ![Train set lenght](Images/trainSetLenght.png)
 
-
-20 000 for the evaluation set : 
+20 000 for the evaluation set :
 
 ![Test set lenght](Images/testSetLenght.png)
 
@@ -33,8 +32,6 @@ https://github.com/PaulSerin/Lab-AI---HPC-Tools/blob/34dd05fcbd2f22eb06f9e35e49a
 I used the AdamW optimizer with a learning rate of 5e-5 :
 
 https://github.com/PaulSerin/Lab-AI---HPC-Tools/blob/34dd05fcbd2f22eb06f9e35e49af5a04bc082a7b/BASELINE.py#L204
-
-
 
 ### Code
 
@@ -48,7 +45,6 @@ To run the training script on an A100 GPU, you can use the following command:
 ```
 sbatch run.sh
 ```
-
 
 This will generate an output similar to this SLURM output file: [slurm-8705441.out](https://github.com/PaulSerin/Lab-AI---HPC-Tools/blob/main/slurm-8705441.out), but the file name will match the corresponding SLURM job ID.
 
@@ -76,27 +72,23 @@ Below is a snapshot of the results obtained from my experiments:
 
 ![Training Loss Function](Images/trainingLossFunctionTB.png)
 
-![Evaluation Loss Function](Images/evaluationLossFunctionTB.png) 
+![Evaluation Loss Function](Images/evaluationLossFunctionTB.png)
 
-*1. Evolution of the Training Loss (from 4 to 1)*
+_1. Evolution of the Training Loss (from 4 to 1)_
 
 The training loss starts at 4 and decreases to 1, which shows that the model is learning effectively from the training data. This indicates that the optimizer is working properly, and the model is adjusting its weights to make better predictions on the training set.
 
-*2. Validation Loss of 1.2 and Training Loss of 1*
+_2. Validation Loss of 1.2 and Training Loss of 1_
 
-With a validation loss of 1.2 and a training loss around 1, the values are quite close, which is a good sign. It suggests that the model generalizes well to the validation data and is not overfitting to the training data. 
+With a validation loss of 1.2 and a training loss around 1, the values are quite close, which is a good sign. It suggests that the model generalizes well to the validation data and is not overfitting to the training data.
 
 The slight difference (1.2 in validation vs 1 in training) is normal, as the validation data is unseen, and performance is typically a bit lower on these samples compared to the training set.
 
-
-*NB : There are many oscillations when observing the light orange lines because the loss function was calculated at each batch. It is the progression of the moving average, shown in solid dark orange, that should be followed.*
-
-
-
+_NB : There are many oscillations when observing the light orange lines because the loss function was calculated at each batch. It is the progression of the moving average, shown in solid dark orange, that should be followed._
 
 ## DISTRIBUTED
 
-In this part of the project, we focus on parallelizing the training loop of the baseline implementation using different work distribution methods such as Distributed Data Parallel (DDP), Fully Sharded Data Parallel (FSDP), and DeepSpeed. The goal is to analyze the speedup and performance improvements compared to the sequential version. 
+In this part of the project, we focus on parallelizing the training loop of the baseline implementation using different work distribution methods such as Distributed Data Parallel (DDP), Fully Sharded Data Parallel (FSDP), and DeepSpeed. The goal is to analyze the speedup and performance improvements compared to the sequential version.
 
 For the parallelization, we used the **PyTorch Lightning** library, which greatly simplifies the process of managing distributed training. Below is the batch script executed on the supercomputer:
 
@@ -114,8 +106,8 @@ This configuration leverages 2 nodes with 2 GPUs (Nvidia A100) on each node, 64 
 
 As with the baseline, this section includes a notebook and Python script:
 
- - DISTRIBUTED.ipynb : A notebook parallelized using the ddp_notebook strategy.
- - DISTRIBUTED.py : The parallelized version of BASELINE.py, which is the primary focus of the performance analysis.
+- DISTRIBUTED.ipynb : A notebook parallelized using the ddp_notebook strategy.
+- DISTRIBUTED.py : The parallelized version of BASELINE.py, which is the primary focus of the performance analysis.
 
 PyTorch Lightning Implementation
 We leveraged PyTorch Lightning to simplify the parallelization process. The library provides built-in support for distributed strategies and offers several useful features, such as easier configuration of callbacks, logging, and checkpointing.
@@ -146,9 +138,10 @@ https://github.com/PaulSerin/Lab-AI---HPC-Tools/blob/584f222b516343f326cfbbc0a61
 
 #### Trainer
 
-The `Trainer` object in **PyTorch Lightning** is where the distributed strategy is set, and it controls the entire training process. It simplifies the orchestration of multi-node, multi-GPU training by allowing you to specify the number of GPUs, nodes, and distribution strategy (e.g., DDP, FSDP, or DeepSpeed). 
+The `Trainer` object in **PyTorch Lightning** is where the distributed strategy is set, and it controls the entire training process. It simplifies the orchestration of multi-node, multi-GPU training by allowing you to specify the number of GPUs, nodes, and distribution strategy (e.g., DDP, FSDP, or DeepSpeed).
 
 In this case, `Trainer` was configured with:
+
 - A dynamic `strategy` selection based on user input (either DDP, FSDP, or DeepSpeed).
 - Callbacks for early stopping, model checkpointing, learning rate monitoring, and time tracking.
 - Use of multiple nodes and GPUs as specified in the SLURM script.
@@ -164,8 +157,8 @@ To run the code, the user needs to submit the `runDISTRIBUTED.sh` script using t
 ```bash
 sbatch runDISTRIBUTED.sh
 ```
-[runDISTRIBUTED.sh](https://github.com/PaulSerin/Lab-AI---HPC-Tools/blob/584f222b516343f326cfbbc0a61a1bcb3a7739d3/DISTRIBUTED/runDistributed.sh)
 
+[runDISTRIBUTED.sh](https://github.com/PaulSerin/Lab-AI---HPC-Tools/blob/584f222b516343f326cfbbc0a61a1bcb3a7739d3/DISTRIBUTED/runDistributed.sh)
 
 Before executing the script, the user can specify the desired strategy for distributing work across the available nodes and GPUs. The script includes several pre-configured strategies, and the user simply needs to uncomment the desired strategy in the .sh file. For example, to switch between ddp, fsdp, or deepspeed, the user should edit the following section:
 
@@ -182,7 +175,6 @@ To view the profiling results with TensorBoard, the user needs to be in a Python
 ```bash
 tensorboard --logdir=tb_logs/my_model/
 ```
-
 
 ### Results
 
@@ -210,23 +202,19 @@ Additionally, we can observe the curve of avg_train_loss, which calculates the l
 
 Notably, all three curves converge, regardless of the method used, indicating that the convergence towards an average train loss of approximately 0.6 remains consistent across different strategies.
 
-
 However, the training times vary slightly across different strategies:
 
 - **DDP:** 8 minutes 2 seconds
 - **FSDP:** 11 minutes 7 seconds
 - **DEEPSPEED:** 12 minutes 21 seconds
 
-
 Given that the sequential training time was **63 minutes 48 seconds**, the resulting speedup for each method is as follows:
 
-| Strategy   | Training Time | Speedup |
-|------------|---------------|---------|
-| DDP        | 8 min 2 sec   | 7.94    |
-| FSDP       | 11 min 7 sec  | 5.74    |
-| DEEPSPEED  | 12 min 21 sec | 5.17    |
-
-
+| Strategy  | Training Time | Speedup |
+| --------- | ------------- | ------- |
+| DDP       | 8 min 2 sec   | 7.94    |
+| FSDP      | 11 min 7 sec  | 5.74    |
+| DEEPSPEED | 12 min 21 sec | 5.17    |
 
 ## Conclusion
 
@@ -242,11 +230,6 @@ The results demonstrated varying efficiencies among the strategies:
 
 These findings highlight the effectiveness of distributed training in enhancing performance, particularly with the DDP strategy. The project successfully showcased how modern frameworks like PyTorch Lightning can streamline the implementation of advanced training techniques, ultimately leading to faster model convergence and more efficient use of computational resources.
 
-
-
-
-
-
 <br>
 <br>
 <br>
@@ -255,16 +238,15 @@ These findings highlight the effectiveness of distributed training in enhancing 
 
 ## Bonus Part
 
-*Note on TensorCore Optimizer*
+_Note on TensorCore Optimizer_
 
-*In this project, I utilized the TensorCore optimizer by setting the matrix multiplication precision to high with the command:*
+_In this project, I utilized the TensorCore optimizer by setting the matrix multiplication precision to high with the command:_
 
 https://github.com/PaulSerin/Lab-AI---HPC-Tools/blob/0e6cd50914417196cc97045d2fd7da85f2ca5b34/DISTRIBUTED/DISTRIBUTED.py#L196
 
-*This optimization takes advantage of NVIDIA's Tensor Cores, which are specialized hardware components designed to accelerate matrix operations, particularly in deep learning tasks. By enabling high-precision matrix multiplication, Tensor Cores can perform computations more efficiently and with greater throughput, especially when dealing with large-scale models and datasets.*
+_This optimization takes advantage of NVIDIA's Tensor Cores, which are specialized hardware components designed to accelerate matrix operations, particularly in deep learning tasks. By enabling high-precision matrix multiplication, Tensor Cores can perform computations more efficiently and with greater throughput, especially when dealing with large-scale models and datasets._
 
-*This setting allows for improved performance in terms of both training speed and overall model efficiency. As a result, leveraging TensorCore optimizations significantly contributed to the performance gains observed in the distributed training strategies employed in this project. It illustrates the importance of utilizing hardware-specific optimizations to achieve faster convergence and better utilization of available computational resources.*
-
+_This setting allows for improved performance in terms of both training speed and overall model efficiency. As a result, leveraging TensorCore optimizations significantly contributed to the performance gains observed in the distributed training strategies employed in this project. It illustrates the importance of utilizing hardware-specific optimizations to achieve faster convergence and better utilization of available computational resources._
 
 Since parallelization significantly speeds up the process, I decided to run the training for 7 epochs to obtain more detailed and visually meaningful results. Below are the results displayed on TensorBoard using the DDP strategy for 7 epochs. To visualize the results in TensorBoard, you can run the following command:
 
